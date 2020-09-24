@@ -1,0 +1,17 @@
+{
+  "name": "api-lambda-save-dynamodb",
+  "version": "2.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "package": "aws cloudformation package --template-file template.yml --output-template-file output.yml --s3-bucket chars-app-repo",
+    "deploy": "aws cloudformation deploy --template-file output.yml --stack-name api-lambda-save-dynamodb --capabilities CAPABILITY_IAM --parameter-overrides TableName=$npm_package_config_table_name",
+    "qd": "npm run package && npm run deploy"
+  },
+  "config": {
+    "table_name": "clients"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
