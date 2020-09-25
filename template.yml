@@ -30,9 +30,7 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs12.x
-      CodeUri:
-        Bucket: chars-app-repo
-        Key: !Sub "code.zip"
+      CodeUri: src/
       Environment:
         Variables:
           TABLE_NAME: !Ref TableName

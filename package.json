@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "package": "aws cloudformation package --template-file template.yml --output-template-file output.yml --s3-bucket chars-app-repo",
-    "deploy": "aws cloudformation deploy --template-file output.yml --stack-name api-lambda-save-dynamodb --capabilities CAPABILITY_IAM --parameter-overrides TableName=$npm_package_config_table_name",
+    "package": "sam package --template-file template.yml --output-template-file output.yml --s3-bucket ${npm_package_config_bucket_name}",
+    "deploy": "sam deploy --template-file output.yml --stack-name ${npm_package_config_stack_name} --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND --parameter-overrides TableName=${npm_package_config_table_name}",
     "qd": "npm run package && npm run deploy"
   },
   "config": {
-    "table_name": "clients"
+    "table_name": "chars_table",
+    "bucket_name": "chars_code",
+    "stack_name": "charsStack2"
   },
   "keywords": [],
   "author": "",

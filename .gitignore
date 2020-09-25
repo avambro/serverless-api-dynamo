@@ -5,3 +5,4 @@ npm_debug.log
 .idea
 output.yml
 src/node_modules
+src/*.zip
