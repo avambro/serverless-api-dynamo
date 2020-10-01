@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "package": "sam package --template-file template.yml --output-template-file output.yml --s3-bucket ${npm_package_config_bucket_name}",
-    "deploy": "sam deploy --template-file output.yml --stack-name ${npm_package_config_stack_name} --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND --parameter-overrides TableName=${npm_package_config_table_name}",
+    "package": "sam package --template-file template.yml --output-template-file output.yml --s3-bucket ${npm_package_config_bucket}",
+    "deploy":  "sam deploy  --template-file output.yml --stack-name ${npm_package_config_stack} --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND --parameter-overrides TableName=${npm_package_config_table} BucketName=${npm_package_config_bucket} --region us-east-1",
     "qd": "npm run package && npm run deploy"
   },
   "config": {
-    "table_name": "chars_table",
-    "bucket_name": "chars_code",
-    "stack_name": "charsStack2"
+    "table": "charstable",
+    "bucket": "charscode",
+    "stack": "charsstack1"
   },
   "keywords": [],
   "author": "",
