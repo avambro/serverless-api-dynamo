@@ -33,6 +33,10 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs12.x
+      Description: Insert info to DynamoDB table
+      MemorySize: 1024
+      Timeout: 25
+      Tracing: Active|PassThrough
       CodeUri:
         Bucket: !Ref BucketName
         Key:  !Sub "code.zip"
